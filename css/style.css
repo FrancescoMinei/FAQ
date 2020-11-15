@@ -11,7 +11,7 @@ body {
 .Wrapper .SideBar {
     height: 100%;
     width: 300px;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
@@ -25,4 +25,41 @@ body {
 .Wrapper .SideBar #Title {
     font-family: Montserrat, "Arial", "Helvetica", "sans-serif";
     color: black;
+}
+
+.Wrapper .SideBar .logout {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.Wrapper .SideBar .logout a {
+    display: block;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    background: #594f8d;
+    line-height: 45px;
+    margin: 0 5px;
+    color: #c3c3c3;
+    border-radius: 5px;
+}
+
+.Wrapper .SideBar li {
+    list-style-type: none;
+    color: black;
+}
+
+.Wrapper .MainContent {
+    margin-left: 400px;
+    margin-right: 100px;
+}
+
+.Wrapper .MainContent h1 {
+    font-family: Montserrat, "Arial", "Helvetica", "sans-serif";
+    color: black;
+    text-align: center;
 }
