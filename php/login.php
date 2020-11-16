@@ -9,9 +9,9 @@ function LOGIN(){
     if($conn->connect_error)
         die("Connection Error" . $conn->connect_error);
     
-    if ( !isset($_POST['username'], $_POST['password']) ) {
-        // Could not get the data that should have been sent.
+    if ( !isset($_POST['username'], $_POST['password']) ) 
         exit('Please fill both the username and password fields!');
     
+     $conn->close();
 }
 ?>
