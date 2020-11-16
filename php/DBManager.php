@@ -36,6 +36,7 @@ function LoadQuestions($id){
     $conn->close();
 
 }
+
 function InsertCategory(){
     $servername = "localhost";
     $username="FaqAdmin";
