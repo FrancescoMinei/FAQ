@@ -42,13 +42,13 @@ function FindUser($user,$psw){
     $password="password123";
     $dbname="faq";
 
-    $pass=password_hash($psw,"sha256",false);
+    $pass=password_hash($psw,PASSWORD_DEFAULT);
 
     $conn=new mysqli($servername,$username,$password,$dbname);
 
     if($conn->connect_error)
         die("Connection Error" . $conn->connect_error);
-    $sql="SELECT * FROM account WHERE UserName=$user AND PassWord=$psw";
+    $sql="SELECT * FROM account WHERE UserName=$user AND PassWord=$pass";
 
     $res=$conn->query($sql);
     return $res->num_rows;
@@ -64,7 +64,7 @@ function InsertCategory(){
         die("Connection Error" . $conn->connect_error);
     $sql = "INSERT INTO category (firstname, lastname, email)
     VALUES ('John', 'Doe', 'john@example.com')";
-    
+
     $conn->close();
 }
 
