@@ -36,7 +36,24 @@ function LoadQuestions($id){
     $conn->close();
 
 }
+function FindUser($user,$psw){
+    $servername = "localhost";
+    $username="FaqAdmin";
+    $password="password123";
+    $dbname="faq";
 
+    $pass=password_hash($psw,"sha256",false);
+
+    $conn=new mysqli($servername,$username,$password,$dbname);
+
+    if($conn->connect_error)
+        die("Connection Error" . $conn->connect_error);
+    $sql="SELECT * FROM account WHERE UserName=$user AND PassWord=$psw";
+
+    $res=$conn->query($sql);
+    return $res->num_rows;
+    $conn->close();
+}
 function InsertCategory(){
     $servername = "localhost";
     $username="FaqAdmin";
@@ -47,11 +64,7 @@ function InsertCategory(){
         die("Connection Error" . $conn->connect_error);
     $sql = "INSERT INTO category (firstname, lastname, email)
     VALUES ('John', 'Doe', 'john@example.com')";
-    /*if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-    } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    }*/
+    
     $conn->close();
 }
 
