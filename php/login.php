@@ -1,13 +1,12 @@
 <?php
-function LOGIN(){
     require 'DBManager.php';
 
     $user = $_POST["Username"];
     $psw = $_POST["Password"];
 
-    $res=FindUser($user,$psw);
+    $res=FindUser($user);
 
-    if($res!=0)
+    if(password_verify($psw,$res['PassWord']))
     {
         echo $res;
         session_start();
@@ -17,9 +16,5 @@ function LOGIN(){
     }
     else{
         echo "Wrong username or password";
-        echo $res;
     }
-
-}
-LOGIN();
 ?>
