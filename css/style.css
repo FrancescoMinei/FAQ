@@ -27,6 +27,10 @@ body {
     color: black;
 }
 
+.Wrapper .SideBar .AdminControl #AdminStuff a {
+    color: black;
+}
+
 .Wrapper .SideBar .logout {
     position: absolute;
     bottom: 0;

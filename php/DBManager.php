@@ -53,20 +53,10 @@ function FindUser($user){
 function ShowQuestions(){
 
 }
-function InsertCategory(){
-    $servername = "localhost";
-    $username="FaqAdmin";
-    $password="password123";
-    $dbname="faq";
-    $conn=new mysqli($servername,$username,$password,$dbname);
-    if($conn->connect_error)
-        die("Connection Error" . $conn->connect_error);
-    $sql = "INSERT INTO category (firstname, lastname, email)
-    VALUES ('John', 'Doe', 'john@example.com')";
-
+function InsertCategory($cat){
+    $conn=DataConnect();
+    $sql = "INSERT INTO `category`(`CategoryName`) VALUES ('$cat')";
+    $conn->query($sql);
     $conn->close();
 }
-
-
-
 ?>
