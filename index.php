@@ -25,9 +25,17 @@
                 </div>
                 <?php } else { ?>
                     <div class="AdminControl">
+                    <li id="AdminStuff"><a href="admin/AggiungiAdmin.php">Aggiungi admin</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiCategoria.php">Aggiungi categoria</a></li>
-                    <li id="AdminStuff"><a href="admin/AggiungiCategoria.php">Aggiungi domanda e risposta</a></li>
-                    <li id="AdminStuff"><a href="admin/AggiungiCategoria.php">Aggiungi admin</a></li>
+                    <li id="AdminStuff"><a href="admin/AggiungiDomanda.php">Aggiungi domanda e risposta</a></li>
+                    <li id="AdminStuff"><a href="admin/EditQuestion.php">Modifica</a>
+                    <select id="AdminStuff" name="Category" id="cmbMake" name="Make">
+                    <?php
+                    require 'php/DBManager.php';
+                    echo LoadCategoryWithIndex();
+                    ?>
+                    </select></li>
+                    
                     </div>
                     <div class="logout">
                         <a href="logout.php"><i class="fas fa-sign-out-alt"></i></a>

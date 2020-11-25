@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
+    margin: 0;
+}
+
+.Wrapper .Square {
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.Wrapper .Square #Text {
+    text-align: center;
+    font-family: Montserrat, "Arial", "Helvetica", "sans-serif";
+    margin-top: 10px;
+}
+
+.Wrapper .Square #Input-item {
+    margin-top: 20px;
+}
+
+.Wrapper .Square input#btn_submit {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 90px;
+}
