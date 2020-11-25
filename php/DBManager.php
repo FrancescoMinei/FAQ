@@ -45,6 +45,32 @@ function LoadQuestions($id){
     return $ris;
     $conn->close();
 }
+function LoadQuestionWithId($id){
+    $conn=DataConnect();
+    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.id=$id";
+    $res=$conn->query($sql);
+    $ris = "";
+    while($elem = $res->fetch_assoc()){
+        $ris = 
+        "<label name=\"id\">". $id ."</label>"
+        ."<input name=".'Question'." id=".'Input-item'." type=".'text'." class=".'form-control'." placeholder=\"". $elem['Question'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." required="." autofocus=".">"
+        ."<textarea class=form-control rows=". 15 ." name=desc placeholder=\"". $elem['Answer'] ."\"></textarea>"
+        ."<input name=".'Tag'." id=".'Input-item'." type=".'text'." class=".'form-control'." placeholder=\"". $elem['Tag'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." required="." autofocus=".">";
+    }
+    return $ris;
+    $conn->close();
+}
+function LoadTitleWithId($id){
+    $conn=DataConnect();
+    $sql="SELECT question.id, question.Question FROM question WHERE question.fk_catogory=$id";
+    $res=$conn->query($sql);
+    $ris = "";
+    while($elem = $res->fetch_assoc()){
+        $ris = $ris . " <option value=" . $elem['id'] ." id=" . $elem['id'] .">" . $elem['Question'] . "</option>";
+    }
+    return $ris;
+    $conn->close();
+}
 function Registration(){
     $conn=DataConnect();
     $psw=password_hash('password1234',PASSWORD_DEFAULT);
@@ -62,8 +88,7 @@ function FindUser($user){
     $conn->close();
     return $data;
 }
-function InsertQuestion($Que,$Ans,$Tag,$idCat)
-{
+function InsertQuestion($Que,$Ans,$Tag,$idCat){
     $conn=DataConnect();
     $sql = "INSERT INTO `question`(`Question`, `Answer`, `Tag`, `fk_catogory`) VALUES ('$Que','$Ans','$Tag','$idCat')";
     $conn->query($sql);
@@ -75,11 +100,16 @@ function InsertCategory($cat){
     $conn->query($sql);
     $conn->close();
 }
-function InsertAdmin($User,$Pass)
-{
+function InsertAdmin($User,$Pass){
     $conn=DataConnect();
     $psw=password_hash($Pass,PASSWORD_DEFAULT);
     $sql = "INSERT INTO `account`(`UserName`, `PassWord`) VALUES ('$User','$psw')";
+    $conn->query($sql);
+    $conn->close();
+}
+function EditQuestion($id,$Que,$Ans,$Tag){
+    $conn=DataConnect();
+    $sql="UPDATE `question` SET `Question`='$Que',`Answer`='$Ans',`Tag`='$Tag' WHERE $id";
     $conn->query($sql);
     $conn->close();
 }

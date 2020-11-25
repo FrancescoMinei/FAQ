@@ -31,11 +31,9 @@
                     <li id="AdminStuff"><a href="admin/EditQuestion.php">Modifica</a>
                     <select id="AdminStuff" name="Category" id="cmbMake" name="Make">
                     <?php
-                    require 'php/DBManager.php';
-                    echo LoadCategoryWithIndex();
+                    echo LoadTitleWithId(1);
                     ?>
                     </select></li>
-                    
                     </div>
                     <div class="logout">
                         <a href="logout.php"><i class="fas fa-sign-out-alt"></i></a>

@@ -9,17 +9,14 @@
 </head>
 <body>
 <div class="Wrapper">
-        <form action="../php/AddCategory.php" method="POST">
+        <form action="../php/EditQuestion.php" method="POST">
             <div class="Square">
                 <h1 id="Text">Modifica</h1>
-                <label>Seleziona la categoria: </label>
-                <select name="Category" id="cmbMake" name="Make">
                 <?php
                 require '../php/DBManager.php';
-                echo LoadCategoryWithIndex();
+                echo LoadQuestionWithId(1);
                 ?>
-                </select>
-                <input type="submit" id="btn_submit" value="Aggiungi">
+                <input type="submit" id="btn_submit" value="Modifica">
             </div>
         </form>
     </div>
