@@ -4,14 +4,13 @@ body {
 }
 
 .Wrapper {
-    /*width: 100%;*/
     height: 100%;
 }
 
 .Wrapper .SideBar {
     height: 100%;
     width: 300px;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
@@ -27,7 +26,19 @@ body {
     color: black;
 }
 
+.Wrapper .SideBar li a {
+    font-family: Montserrat, "Arial", "Helvetica", "sans-serif";
+    color: black;
+}
+
+.Wrapper .SideBar .AdminControl h1 {
+    font-family: Montserrat, "Arial", "Helvetica", "sans-serif";
+    color: black;
+    text-align: center;
+}
+
 .Wrapper .SideBar .AdminControl #AdminStuff a {
+    margin-top: 20px;
     color: black;
 }
 

@@ -13,7 +13,7 @@
 <body>
     <div class="Wrapper">
         <div class="SideBar">
-            <h1 id="Title">Category</h1>
+        <h1 id="Title">Category</h1>
                 <?php
                 require "php/DBManager.php" ;
                 echo LoadCategory();
@@ -25,6 +25,7 @@
                 </div>
                 <?php } else { ?>
                     <div class="AdminControl">
+                    <h1 id="AdminControl">Admin</h1>
                     <li id="AdminStuff"><a href="admin/AggiungiAdmin.php">Aggiungi admin</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiCategoria.php">Aggiungi categoria</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiDomanda.php">Aggiungi domanda e risposta</a></li>
