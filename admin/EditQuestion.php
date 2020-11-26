@@ -14,7 +14,8 @@
                 <h1 id="Text">Modifica</h1>
                 <?php
                 require '../php/DBManager.php';
-                echo LoadQuestionWithId(1);
+                $id=$_POST['Make'];
+                echo LoadQuestionWithId($id);
                 ?>
                 <input type="submit" id="btn_submit" value="Modifica">
             </div>

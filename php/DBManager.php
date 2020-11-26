@@ -53,9 +53,9 @@ function LoadQuestionWithId($id){
     while($elem = $res->fetch_assoc()){
         $ris = 
         "<label name=\"id\">". $id ."</label>"
-        ."<input name=".'Question'." id=".'Input-item'." type=".'text'." class=".'form-control'." placeholder=\"". $elem['Question'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." required="." autofocus=".">"
+        ."<input name=".'Question'." id=".'Input-item'." type=".'text'." class=".'form-control'." placeholder=\"". $elem['Question'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." autofocus=".">"
         ."<textarea class=form-control rows=". 15 ." name=desc placeholder=\"". $elem['Answer'] ."\"></textarea>"
-        ."<input name=".'Tag'." id=".'Input-item'." type=".'text'." class=".'form-control'." placeholder=\"". $elem['Tag'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." required="." autofocus=".">";
+        ."<input name=".'Tag'." id=".'Input-item'." type=".'text'." class=".'form-control'." placeholder=\"". $elem['Tag'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." autofocus=".">";
     }
     return $ris;
     $conn->close();
@@ -109,7 +109,7 @@ function InsertAdmin($User,$Pass){
 }
 function EditQuestion($id,$Que,$Ans,$Tag){
     $conn=DataConnect();
-    $sql="UPDATE `question` SET `Question`='$Que',`Answer`='$Ans',`Tag`='$Tag' WHERE $id";
+    $sql="UPDATE `question` SET `Question`='$Que',`Answer`='$Ans',`Tag`='$Tag' WHERE id=$id";
     $conn->query($sql);
     $conn->close();
 }

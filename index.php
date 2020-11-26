@@ -29,8 +29,12 @@
                     <li id="AdminStuff"><a href="admin/AggiungiAdmin.php">Aggiungi admin</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiCategoria.php">Aggiungi categoria</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiDomanda.php">Aggiungi domanda e risposta</a></li>
-                    <li id="AdminStuff"><a href="admin/EditQuestion.php">Modifica</a>
-                    <select id="AdminStuff" name="Category" id="cmbMake" name="Make">
+
+                    <form action="admin/EditQuestion.php" method="post">
+                    <input type="submit" value="Modifica">
+                    <select name="Make" id="AdminStuff" name="Category" id="cmbMake" >
+                    </form>
+
                     <?php
                     echo LoadTitleWithId(1);
                     ?>
