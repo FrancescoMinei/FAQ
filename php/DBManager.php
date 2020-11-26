@@ -15,7 +15,7 @@ function LoadCategory(){
     $res=$conn->query($sql);
     $ris = "";
     while($elem = $res->fetch_assoc()){
-        $ris = $ris . "<li id=" . $elem['id'] ."><a href='#'>" . $elem['CategoryName'] . "</a></li>";
+        $ris = $ris . "<li id=" . $elem['id'] ."><a href='index.php?ID=".$elem['id'] ."'>" . $elem['CategoryName'] . "</a></li>";
     }
     return $ris;
     $conn->close();
@@ -71,14 +71,14 @@ function LoadTitleWithId($id){
     return $ris;
     $conn->close();
 }
-function Registration(){
+/*function Registration(){
     $conn=DataConnect();
     $psw=password_hash('password1234',PASSWORD_DEFAULT);
     $sql="INSERT INTO `account`(`Id`, `UserName`, `PassWord`) VALUES (1,'Admin','$psw')";
     echo $sql;
     $conn->query($sql);
     $conn->close();
-}
+} USATA PER INSERIRE IL PRIMO ADMIN*/ 
 function FindUser($user){
     $conn=DataConnect();
     $sql="SELECT * FROM account WHERE UserName='$user'";
