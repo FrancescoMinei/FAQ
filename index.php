@@ -46,7 +46,7 @@
                     </select></li>
                     </div>
                     <div class="logout">
-                        <a href="logout.php"><i class="fas fa-sign-out-alt"></i></a>
+                        <a href="php/logout.php"><i class="fas fa-sign-out-alt"></i></a>
                     </div>
                     <?php } ?>
         </div>
