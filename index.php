@@ -33,7 +33,7 @@
                     <li id="AdminStuff"><a href="admin/AggiungiDomanda.php">Aggiungi domanda e risposta</a></li>
 
                     <form action="admin/EditQuestion.php" method="post">
-                    <input type="submit" value="Modifica">
+                    <input type="submit" value="Modifica"></br>
                     <select name="Make" id="AdminStuff" name="Category" id="cmbMake" >
                     </form>
 
