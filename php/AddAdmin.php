@@ -12,6 +12,6 @@
     else
     {
         echo "<script type='text/javascript'>alert('Le password non corrispondono');</script>";
-        header('Location: ../index.php');
+        header('Location: ../admin/AggiungiAdmin.php');
     }
 ?>
