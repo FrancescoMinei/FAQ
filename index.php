@@ -31,12 +31,11 @@
                     <li id="AdminStuff"><a href="admin/AggiungiAdmin.php">Aggiungi admin</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiCategoria.php">Aggiungi categoria</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiDomanda.php">Aggiungi domanda e risposta</a></li>
-
+                    <?php if(!isset($_GET['Tag'])){?>
                     <form action="admin/EditQuestion.php" method="post">
                     <input type="submit" value="Modifica"></br>
                     <select name="Make" id="AdminStuff" name="Category" id="cmbMake" >
-                    </form>
-
+                    </form>             
                     <?php
                     if($_GET['ID']!=null)
                         echo LoadTitleWithId((int)$_GET['ID']);
@@ -44,6 +43,7 @@
                     echo LoadTitleWithId(1);
                     ?>
                     </select></li>
+                    <?php }?>
                     </div>
                     <div class="logout">
                         <a href="php/logout.php"><i class="fas fa-sign-out-alt"></i></a>
