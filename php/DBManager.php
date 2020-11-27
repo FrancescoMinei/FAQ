@@ -88,6 +88,20 @@ function FindUser($user){
     $conn->close();
     return $data;
 }
+Function SearchByTag($tag){
+    $conn=DataConnect();
+    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.Tag=$tag";
+    $res=$conn->query($sql);
+    $ris = "";
+    while($elem = $res->fetch_assoc()){
+        $ris = $ris . 
+        "<h1>" . $elem['Question'] . "</h1> 
+        <p>" . $elem['Answer'] . "</p>
+        <p>" . $elem['Tag'] . "</p>";
+    }
+    return $ris;
+    $conn->close();
+}
 function InsertQuestion($Que,$Ans,$Tag,$idCat){
     $conn=DataConnect();
     $sql = "INSERT INTO `question`(`Question`, `Answer`, `Tag`, `fk_catogory`) VALUES ('$Que','$Ans','$Tag','$idCat')";
