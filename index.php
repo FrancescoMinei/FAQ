@@ -13,7 +13,8 @@
 <body>
     <div class="Wrapper">
         <div class="SideBar">
-        <h1 id="Title">Category</h1>
+        <a href="index.php"><img src="IMG/Faq_Logo.png" alt="Logo.png"></a>
+        <h1 id="Title">Categorie</h1>
             <input name="search" id="Search" type="text" placeholder="Search.." >   
             <button name="ok" type="submit" onclick=EditUrl()><i class="fas fa-search"></i></button>
                 <?php

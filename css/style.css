@@ -26,6 +26,11 @@ body {
     color: black;
 }
 
+.Wrapper .SideBar img {
+    width: 100px;
+    height: 100px;
+}
+
 .Wrapper .SideBar li a {
     font-family: Montserrat, "Arial", "Helvetica", "sans-serif";
     color: black;
