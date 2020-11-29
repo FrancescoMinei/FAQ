@@ -43,7 +43,7 @@
                     <?php if(!(isset($_GET['Tag'])||isset($_GET['Title']))){?>
                     <form action="admin/EditQuestion.php" method="post">
                     <input type="submit" value="Modifica"></br>
-                    <select name="Make" id="AdminStuff" name="Category" id="cmbMake" size="10">
+                    <select name="Make" id="AdminStuff" name="Category" id="cmbMake" size="5">
                     </form>             
                     <?php
                     if($_GET['ID']!=null)
