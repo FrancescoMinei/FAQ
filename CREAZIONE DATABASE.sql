@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Creato il: Nov 29, 2020 alle 13:44
+-- Creato il: Nov 29, 2020 alle 13:54
 -- Versione del server: 8.0.18
 -- Versione PHP: 7.4.5
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `faq`
 --
+CREATE DATABASE IF NOT EXISTS `faq` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `faq`;
 
 -- --------------------------------------------------------
 
