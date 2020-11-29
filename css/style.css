@@ -27,8 +27,8 @@ body {
 }
 
 .Wrapper .SideBar img {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
 }
 
 .Wrapper .SideBar li a {
@@ -40,6 +40,7 @@ body {
     font-family: Montserrat, "Arial", "Helvetica", "sans-serif";
     color: black;
     text-align: center;
+    font-size: 16;
 }
 
 .Wrapper .SideBar .AdminControl #AdminStuff a {

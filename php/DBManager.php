@@ -31,6 +31,17 @@ function LoadCategoryWithIndex(){
     return $ris;
     $conn->close();
 }
+function LoadTagWithIndex(){
+        $conn=DataConnect();
+        $sql="SELECT DISTINCT question.Tag FROM question";
+        $res=$conn->query($sql);
+        $ris = "";
+        while($elem = $res->fetch_assoc()){
+            $ris = $ris . " <option value=" . $elem['Tag'] .">" . $elem['Tag'] . "</option>";
+        }
+        return $ris;
+        $conn->close();
+}
 function LoadQuestions($id){
     $conn=DataConnect();
     $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.fk_catogory=$id";
@@ -90,7 +101,21 @@ function FindUser($user){
 }
 Function SearchByTag($tag){
     $conn=DataConnect();
-    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.Tag=$tag";
+    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.Tag = $tag";
+    $res=$conn->query($sql);
+    $ris = "";
+    while($elem = $res->fetch_assoc()){
+        $ris = $ris . 
+        "<h1>" . $elem['Question'] . "</h1> 
+        <p>" . $elem['Answer'] . "</p>
+        <p>Tag: " . $elem['Tag'] . "</p>";
+    }
+    return $ris;
+    $conn->close();
+}
+Function SearchByTitle($title){
+    $conn=DataConnect();
+    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.Question LIKE '$title" . "%'";
     $res=$conn->query($sql);
     $ris = "";
     while($elem = $res->fetch_assoc()){

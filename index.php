@@ -15,12 +15,18 @@
         <div class="SideBar">
         <a href="index.php"><img src="IMG/Faq_Logo.png" alt="Logo.png"></a>
         <h1 id="Title">Categorie</h1>
-            <input name="search" id="Search" type="text" placeholder="Search.." >   
-            <button name="ok" type="submit" onclick=EditUrl()><i class="fas fa-search"></i></button>
+            <input name="search" id="Search" type="text" placeholder="Titolo..." >   
+            <button name="ok" type="submit" onclick=EditUrlTitle()><i class="fas fa-search"></i></button>
+            <select id="STag" name="Tag" id="cmbMake">
+            <?php
+            require "php/DBManager.php" ; 
+            echo LoadTagWithIndex();
+            session_start();
+            ?>
+            </select>
+            <button name="ok" type="submit" onclick=EditUrlTag()><i class="fas fa-search"></i></button>
                 <?php
-                require "php/DBManager.php" ;
                 echo LoadCategory();
-                session_start();
                     if(!isset($_SESSION['Username'])){
                 ?>
                 <div class="logout">
@@ -35,7 +41,7 @@
                     <?php if(!isset($_GET['Tag'])){?>
                     <form action="admin/EditQuestion.php" method="post">
                     <input type="submit" value="Modifica"></br>
-                    <select name="Make" id="AdminStuff" name="Category" id="cmbMake" >
+                    <select name="Make" id="AdminStuff" name="Category" id="cmbMake" size="10">
                     </form>             
                     <?php
                     if($_GET['ID']!=null)
@@ -52,9 +58,13 @@
                     <?php } ?>
         </div>
         <div class="MainContent">
-            <?php 
+            <?php
             if(isset($_GET['Tag'])){
-                echo SearchByTag((string)$_GET['Tag']);
+                echo SearchByTag($_GET['Tag']);
+            }
+            else{ 
+            if(isset($_GET['Title'])){
+                echo SearchByTitle((string)$_GET['Title']);
             }
             else{
             if(isset($_GET['ID'])){
@@ -64,6 +74,8 @@
             else
                 echo LoadQuestions(1);
             }
+        }
+
           ?>
 </body>
 <script src="js/script.js"></script>
