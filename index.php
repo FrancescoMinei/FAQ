@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <?php
+    require "php/DBManager.php" ; 
+    session_start();
+    ?>
     <div class="Wrapper">
         <div class="SideBar">
         <a href="index.php"><img src="IMG/Faq_Logo.png" alt="Logo.png"></a>
@@ -19,9 +23,7 @@
             <button name="ok" type="submit" onclick=EditUrlTitle()><i class="fas fa-search"></i></button>
             <select id="STag" name="Tag" id="cmbMake">
             <?php
-            require "php/DBManager.php" ; 
             echo LoadTagWithIndex();
-            session_start();
             ?>
             </select>
             <button name="ok" type="submit" onclick=EditUrlTag()><i class="fas fa-search"></i></button>
