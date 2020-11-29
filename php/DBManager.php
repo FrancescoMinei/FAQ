@@ -46,7 +46,7 @@ function LoadTagWithIndex(){
 }
 function LoadQuestions($id){
     $conn=DataConnect();
-    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.fk_catogory=$id";
+    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.fk_category=$id";
     $res=$conn->query($sql);
     $ris = "";
     while($elem = $res->fetch_assoc()){
@@ -75,7 +75,7 @@ function LoadQuestionWithId($id){
 }
 function LoadTitleWithId($id){
     $conn=DataConnect();
-    $sql="SELECT question.id, question.Question FROM question WHERE question.fk_catogory=$id";
+    $sql="SELECT question.id, question.Question FROM question WHERE question.fk_category=$id";
     $res=$conn->query($sql);
     $ris = "";
     while($elem = $res->fetch_assoc()){
@@ -123,7 +123,7 @@ Function SearchByTitle($title){
 }
 function InsertQuestion($Que,$Ans,$Tag,$idCat){
     $conn=DataConnect();
-    $sql = "INSERT INTO `question`(`Question`, `Answer`, `Tag`, `fk_catogory`) VALUES ('$Que','$Ans','$Tag','$idCat')";
+    $sql = "INSERT INTO `question`(`Question`, `Answer`, `Tag`, `fk_category`) VALUES ('$Que','$Ans','$Tag','$idCat')";
     $conn->query($sql);
     $conn->close();
 }
