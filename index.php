@@ -38,7 +38,7 @@
                     <li id="AdminStuff"><a href="admin/AggiungiAdmin.php">Aggiungi admin</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiCategoria.php">Aggiungi categoria</a></li>
                     <li id="AdminStuff"><a href="admin/AggiungiDomanda.php">Aggiungi domanda e risposta</a></li>
-                    <?php if(!isset($_GET['Tag'])){?>
+                    <?php if(!(isset($_GET['Tag'])||isset($_GET['Title']))){?>
                     <form action="admin/EditQuestion.php" method="post">
                     <input type="submit" value="Modifica"></br>
                     <select name="Make" id="AdminStuff" name="Category" id="cmbMake" size="10">
@@ -47,7 +47,7 @@
                     if($_GET['ID']!=null)
                         echo LoadTitleWithId((int)$_GET['ID']);
                     else
-                    echo LoadTitleWithId(1);
+                        echo LoadTitleWithId(1);
                     ?>
                     </select></li>
                     <?php }?>
