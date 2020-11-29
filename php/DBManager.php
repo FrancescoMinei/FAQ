@@ -1,9 +1,11 @@
 <?php
-function DataConnect(){
+    //CREDENZIALI DATABASE, MODIFICARE QUANDO INSTALLATE SU UNA NUOVA MACCHINA
     $servername = "localhost";
     $username="FaqAdmin";
     $password="password123";
     $dbname="faq";
+function DataConnect(){
+    global $servername,$username, $password,$dbname;
     $conn=new mysqli($servername,$username,$password,$dbname);
     if($conn->connect_error)
         die("Connection Error" . $conn->connect_error);
@@ -82,14 +84,6 @@ function LoadTitleWithId($id){
     return $ris;
     $conn->close();
 }
-/*function Registration(){
-    $conn=DataConnect();
-    $psw=password_hash('password1234',PASSWORD_DEFAULT);
-    $sql="INSERT INTO `account`(`Id`, `UserName`, `PassWord`) VALUES (1,'Admin','$psw')";
-    echo $sql;
-    $conn->query($sql);
-    $conn->close();
-} USATA PER INSERIRE IL PRIMO ADMIN*/ 
 function FindUser($user){
     $conn=DataConnect();
     $sql="SELECT * FROM account WHERE UserName='$user'";
