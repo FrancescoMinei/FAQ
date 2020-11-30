@@ -1,3 +1,7 @@
 RewriteEngine On
 
-RewriteRule
+RewriteRule ^Home?$ index.php
+RewriteRule ^Login?$ login.html
+RewriteRule ^Admin/AggiungiAdmin?$ admin/AggiungiAdmin.php
+RewriteRule ^Login?$ login.html
+RewriteRule ^Login?$ login.html

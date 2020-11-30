@@ -12,7 +12,7 @@
         session_start();
         $_SESSION['Username']=$user;
         $_SESSION['Password']=$psw;
-        header('Location: ../index.php');
+        header('Location: ../Home');
     }
     else{
         echo "Wrong username or password";
