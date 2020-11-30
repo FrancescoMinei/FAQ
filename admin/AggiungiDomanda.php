@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="css/styleAddQuestion.css">
     <title>Aggiungi Domanda e risposta</title>
 </head>
+
 <body>
-<div class="Wrapper">
+    <div class="Wrapper">
         <form action="../php/AddQuestion.php" method="POST">
             <div class="Square">
                 <h1 id="Text">Aggiungi Domanda e risposta</h1>
@@ -17,14 +19,15 @@
                 <input name="Tag" id="Input-item" type="text" class="form-control" placeholder="Tag" aria-label="Categoria" aria-describedby="basic-addon2" required="" autofocus="" lenght="20">
                 <label for="Manufacturer"> Categoria : </label>
                 <select name="Category" id="cmbMake" name="Make">
-                <?php
-                require '../php/DBManager.php';
-                echo LoadCategoryWithIndex();
-                ?>
+                    <?php
+                    require '../php/DBManager.php';
+                    echo LoadCategoryWithIndex();
+                    ?>
                 </select>
                 <input type="submit" id="btn_submit" value="Aggiungi">
             </div>
         </form>
     </div>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,15 @@
     <link rel="stylesheet" href="css/styleEditQuestion.css">
     <title>Modifica</title>
 </head>
+
 <body>
-<div class="Wrapper">
+    <div class="Wrapper">
         <form action="../php/EditQuestion.php" method="POST">
             <div class="Square">
                 <h1 id="Text">Modifica</h1>
                 <?php
                 require '../php/DBManager.php';
-                $id=$_POST['Make'];
+                $id = $_POST['Make'];
                 echo LoadQuestionWithId($id);
                 ?>
                 <input type="submit" id="btn_submit" value="Modifica">
@@ -22,4 +24,5 @@
         </form>
     </div>
 </body>
+
 </html>

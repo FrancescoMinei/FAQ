@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="css/styleAddCategory.css">
     <title>Aggiungi Categoria</title>
 </head>
+
 <body>
-<div class="Wrapper">
+    <div class="Wrapper">
         <form action="../php/AddCategory.php" method="POST">
             <div class="Square">
                 <h1 id="Text">Aggiungi categoria</h1>
@@ -18,4 +20,5 @@
         </form>
     </div>
 </body>
+
 </html>
