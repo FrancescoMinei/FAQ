@@ -1,7 +1,11 @@
 RewriteEngine On
 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
 RewriteRule ^Home?$ index.php
 RewriteRule ^Login?$ login.html
-RewriteRule ^Admin/AggiungiAdmin?$ admin/AggiungiAdmin.php
-RewriteRule ^Login?$ login.html
-RewriteRule ^Login?$ login.html
+RewriteRule ^AggiungiAdmin?$ admin/AggiungiAdmin.php
+RewriteRule ^AggiungiCategoria?$ admin/AggiungiCategoria.php
+RewriteRule ^AggiungiDomanda?$ admin/AggiungiDomanda.php
+RewriteRule ^ModificaDomanda?$ admin/EditQuestion.php

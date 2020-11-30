@@ -6,5 +6,5 @@
     $tag = $_POST["Tag"];
     $cat = $_POST["Category"];
     InsertQuestion($que,$ans,$tag,$cat);
-    header('Location: ../index.php');
+    header('Location: ../Home');
 ?>

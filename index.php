@@ -37,19 +37,18 @@
                 <?php } else { ?>
                     <div class="AdminControl">
                     <h1 id="AdminControl">Admin</h1>
-                    <li id="AdminStuff"><a href="Admin/AggiungiAdmin">Aggiungi admin</a></li>
-                    <li id="AdminStuff"><a href="admin/AggiungiCategoria.php">Aggiungi categoria</a></li>
-                    <li id="AdminStuff"><a href="admin/AggiungiDomanda.php">Aggiungi domanda e risposta</a></li>
-                    <?php if(!(isset($_GET['Tag'])||!isset($_GET['Title'])||!isset($_GET['ID']))){?>
-                    <form action="admin/EditQuestion.php" method="post">
+                    <li id="AdminStuff"><a href="AggiungiAdmin">Aggiungi admin</a></li>
+                    <li id="AdminStuff"><a href="AggiungiCategoria">Aggiungi categoria</a></li>
+                    <li id="AdminStuff"><a href="AggiungiDomanda">Aggiungi domanda e risposta</a></li>
+                    <?php if((!isset($_GET['Tag']) && !isset($_GET['Title']) && !isset($_GET['ID']))){?>
+                    <form action="ModificaDomanda" method="post">
                     <input type="submit" value="Modifica"></br>
                     <select name="Make" id="AdminStuff" name="Category" id="cmbMake" size="5">
-                    </form>             
+                    </form>        
                     <?php
                     if($_GET['ID']!=null)
                         echo LoadTitleWithId((int)$_GET['ID']);
                     else
-                        echo '<option>Impossibile modificare</option>'
                     ?>
                     </select></li>
                     <?php }?>

@@ -3,5 +3,5 @@
 
     $cat = $_POST["CategoryName"];
     InsertCategory($cat);
-    header('Location: ../index.php');
+    header('Location: ../Home');
 ?>

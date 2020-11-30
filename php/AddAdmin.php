@@ -7,7 +7,7 @@
     if($psw==$psw2)
     {
     InsertAdmin($user,$psw);
-    header('Location: ../index.php');
+    header('Location: ../Home');
     }
     else
     {
