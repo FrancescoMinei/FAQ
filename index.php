@@ -17,7 +17,7 @@
     ?>
     <div class="Wrapper">
         <div class="SideBar">
-        <a href="index.php"><img src="IMG/Faq_Logo.png" alt="Logo.png"></a>
+        <a href="index.php?ID=1"><img src="IMG/Faq_Logo.png" alt="Logo.png"></a>
         <h1 id="Title">Categorie</h1>
             <input name="search" id="Search" type="text" placeholder="Titolo..." >   
             <button name="ok" type="submit" onclick=EditUrlTitle()><i class="fas fa-search"></i></button>
