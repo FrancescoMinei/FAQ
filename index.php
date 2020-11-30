@@ -40,7 +40,7 @@
                     <li id="AdminStuff"><a href="AggiungiAdmin">Aggiungi admin</a></li>
                     <li id="AdminStuff"><a href="AggiungiCategoria">Aggiungi categoria</a></li>
                     <li id="AdminStuff"><a href="AggiungiDomanda">Aggiungi domanda e risposta</a></li>
-                    <?php if (isset($_GET['ID'])){ ?>
+                    <?php if (isset($_GET['ID'])) { ?>
                         <form action="ModificaDomanda" method="post">
                             <input type="submit" value="Modifica"></br>
                             <select name="Make" id="AdminStuff" name="Category" id="cmbMake" size="5">
@@ -75,7 +75,7 @@
                 Fusce ut placerat orci nulla pellentesque dignissim enim sit. Libero id faucibus nisl tincidunt eget. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Neque gravida in fermentum et sollicitudin ac.
                  Nec feugiat in fermentum posuere urna nec tincidunt praesent. Faucibus pulvinar elementum integer enim neque volutpat ac. Massa sapien faucibus et molestie ac feugiat sed. 
                 Et malesuada fames ac turpis egestas sed.</p>
-
+                    
                 ';
                 }
             }
