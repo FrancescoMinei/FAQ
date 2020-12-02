@@ -3,13 +3,10 @@
 
     $id=$_POST["id"];
     $que = $_POST["Question"];
-    $ans = $_POST["Answer"];
+    $ans = $_POST["desc"];
     $tag = $_POST["Tag"];
-    $ref=$_POST['Refuse'];
-    if($ref=='Impossibile modificare')
-        header('Location: ../Home');
-    else{
+    
     EditQuestion($id,$que,$ans,$tag);
     header('Location: ../Home');
-    }
+    
 ?>

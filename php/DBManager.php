@@ -65,7 +65,7 @@ function LoadQuestionWithId($id){
     $ris = "";
     while($elem = $res->fetch_assoc()){
         $ris = 
-        "<label name=\"id\">". $id ."</label>"
+        "<input id=\"id_edit\" name=\"id\" value=\"".$id."\" style=\"display:none\" >"
         ."<input name=".'Question'." id=".'Input-item'." type=".'text'." class=".'form-control'." value=\"". $elem['Question'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." autofocus=".">"
         ."<textarea class=form-control rows=". 15 ." name=".'desc'.">".$elem['Answer']."</textarea>"
         ."<input name=".'Tag'." id=".'Input-item'." type=".'text'." class=".'form-control'." value=\"". $elem['Tag'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." autofocus=".">";

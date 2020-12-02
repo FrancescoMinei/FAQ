@@ -11,7 +11,7 @@
 
 <body>
     <div class="Wrapper">
-        <form action="../php/AddCategory.php" method="POST">
+        <form action="php/AddCategory.php" method="POST">
             <div class="Square">
                 <h1 id="Text">Aggiungi categoria</h1>
                 <input name="CategoryName" id="Input-item" type="text" class="form-control" placeholder="Categoria" aria-label="Categoria" aria-describedby="basic-addon2" required="" autofocus="">

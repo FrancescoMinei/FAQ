@@ -11,8 +11,8 @@
 
 <body>
     <div class="Wrapper">
-        <form action="../php/EditQuestion.php" method="POST">
             <div class="Square">
+                <form action="php/EditQuestion.php" method="POST">
                 <h1 id="Text">Modifica</h1>
                 <?php
                 require '../php/DBManager.php';
@@ -20,8 +20,8 @@
                 echo LoadQuestionWithId($id);
                 ?>
                 <input type="submit" id="btn_submit" value="Modifica">
+                </form>
             </div>
-        </form>
     </div>
 </body>
 

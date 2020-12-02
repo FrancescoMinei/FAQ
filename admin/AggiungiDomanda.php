@@ -11,7 +11,7 @@
 
 <body>
     <div class="Wrapper">
-        <form action="../php/AddQuestion.php" method="POST">
+        <form action="php/AddQuestion.php" method="POST">
             <div class="Square">
                 <h1 id="Text">Aggiungi Domanda e risposta</h1>
                 <input name="Question" id="Input-item" type="text" class="form-control" placeholder="Domanda" aria-label="Categoria" aria-describedby="basic-addon2" required="" autofocus="">

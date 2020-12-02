@@ -11,7 +11,7 @@
 
 <body>
     <div class="Wrapper">
-        <form action="../php/AddAdmin.php" method="POST">
+        <form action="php/AddAdmin.php" method="POST">
             <div class="Square">
                 <h1 id="Text">Aggiungi Admin</h1>
                 <input name="Username" id="Input-item" type="text" class="form-control" placeholder="UserName" aria-label="Categoria" aria-describedby="basic-addon2" required="" autofocus="">
