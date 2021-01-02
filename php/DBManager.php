@@ -123,14 +123,22 @@ Function SearchByTitle($title){
 }
 function InsertQuestion($Que,$Ans,$Tag,$idCat){
     $conn=DataConnect();
-    $sql = "INSERT INTO `question`(`Question`, `Answer`, `Tag`, `fk_category`) VALUES ('$Que','$Ans','$Tag','$idCat')";
-    $conn->query($sql);
+
+    $stmt = $conn->prepare("INSERT INTO `question`(`Question`, `Answer`, `Tag`, `fk_category`) VALUES (?,?,?,?)");
+    $stmt->bind_param('s', $Que,$Ans,$Tag,$idCat);
+    //$stmt->bind_param('i', $idCat);
+    $stmt->execute();
+
+    $stmt->close();
     $conn->close();
 }
 function InsertCategory($cat){
     $conn=DataConnect();
-    $sql = "INSERT INTO `category`(`CategoryName`) VALUES ('$cat')";
-    $conn->query($sql);
+    $stmt = $conn->prepare("INSERT INTO category (CategoryName) VALUES (?)");
+    $stmt->bind_param('s', $cat);
+    $stmt->execute();
+
+    $stmt->close();
     $conn->close();
 }
 function InsertAdmin($User,$Pass){
