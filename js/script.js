@@ -2,7 +2,7 @@ function EditUrlTag() {
     let input = document.getElementById("STag");
     let url = window.location.href.split('?');
     let tag = input.value;
-    url[0] += "?Tag=" + '"' + tag + '"';
+    url[0] += "?Tag=" + tag;
     window.location.href = url[0];
 }
 

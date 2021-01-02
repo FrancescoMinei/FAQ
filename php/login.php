@@ -5,8 +5,7 @@
     $psw = $_POST["Password"];
 
     $res=FindUser($user);
-
-    if(password_verify($psw,$res['PassWord']))
+    if(password_verify($psw,$res[1]))
     {
         echo $res;
         session_start();

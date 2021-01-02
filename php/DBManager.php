@@ -46,87 +46,122 @@ function LoadTagWithIndex(){
 }
 function LoadQuestions($id){
     $conn=DataConnect();
-    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.fk_category=$id";
-    $res=$conn->query($sql);
+
+    $stmt = $conn->prepare("SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.fk_category= ?");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $stmt->bind_result($que,$ans,$tag);
+
     $ris = "";
-    while($elem = $res->fetch_assoc()){
+    while($stmt->fetch()){
         $ris = $ris . 
-        "<h1>" . $elem['Question'] . "</h1> 
-        <p>" . $elem['Answer'] . "</p>
-        <p>Tag: " . $elem['Tag'] . "</p>";
+        "<h1>" . $que . "</h1> 
+        <p>" . $ans . "</p>
+        <p>Tag: " . $tag . "</p>";
     }
     return $ris;
+
+    $stmt->close();
     $conn->close();
 }
 function LoadQuestionWithId($id){
     $conn=DataConnect();
-    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.id=$id";
-    $res=$conn->query($sql);
+
+    $stmt = $conn->prepare("SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.id= ?");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $stmt->bind_result($que,$ans,$tag);
+
     $ris = "";
-    while($elem = $res->fetch_assoc()){
+    while($stmt->fetch()){
         $ris = 
         "<input id=\"id_edit\" name=\"id\" value=\"".$id."\" style=\"display:none\" >"
-        ."<input name=".'Question'." id=".'Input-item'." type=".'text'." class=".'form-control'." value=\"". $elem['Question'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." autofocus=".">"
-        ."<textarea class=form-control rows=". 15 ." name=".'desc'.">".$elem['Answer']."</textarea>"
-        ."<input name=".'Tag'." id=".'Input-item'." type=".'text'." class=".'form-control'." value=\"". $elem['Tag'] ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." autofocus=".">";
+        ."<input name=".'Question'." id=".'Input-item'." type=".'text'." class=".'form-control'." value=\"". $que ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." autofocus=".">"
+        ."<textarea class=form-control rows=". 15 ." name=".'desc'.">".$ans."</textarea>"
+        ."<input name=".'Tag'." id=".'Input-item'." type=".'text'." class=".'form-control'." value=\"". $tag ."\" aria-label=".'Categoria'." aria-describedby=".'basic-addon2'." autofocus=".">";
     }
     return $ris;
+
+    $stmt->close();
     $conn->close();
 }
 function LoadTitleWithId($id){
     $conn=DataConnect();
-    $sql="SELECT question.id, question.Question FROM question WHERE question.fk_category=$id";
-    $res=$conn->query($sql);
+
+    $stmt = $conn->prepare("SELECT question.id, question.Question FROM question WHERE question.fk_category= ?");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $stmt->bind_result($id,$que);
+
     $ris = "";
-    while($elem = $res->fetch_assoc()){
-        $ris = $ris . " <option value=" . $elem['id'] ." id=" . $elem['id'] .">" . $elem['Question'] . "</option>";
+    while($stmt->fetch()){
+        $ris = $ris . " <option value=" . $id ." id=" . $id .">" . $que . "</option>";
     }
     return $ris;
+
+    $stmt->close();
     $conn->close();
 }
 function FindUser($user){
     $conn=DataConnect();
-    $sql="SELECT * FROM account WHERE UserName='$user'";
-    $res=$conn->query($sql);
-    $data=$res->fetch_array(MYSQLI_ASSOC);
-    $res->free_result();
+
+    $stmt = $conn->prepare("SELECT UserName, PassWord FROM account WHERE UserName= ?");
+    $stmt->bind_param('s', $user);
+    $stmt->execute();
+    $stmt->bind_result($user,$pass);
+    $stmt->fetch();
+
+    $data=array($user,$pass);
+
     $conn->close();
     return $data;
 }
-Function SearchByTag($tag){
+function SearchByTag($tag){
     $conn=DataConnect();
-    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.Tag = $tag";
-    $res=$conn->query($sql);
+
+    $stmt = $conn->prepare("SELECT question.Question, question.Answer, question.Tag FROM question WHERE question.Tag = ?");
+    $stmt->bind_param('s', $tag);
+    $stmt->execute();
+    $stmt->bind_result($que,$ans,$tag);
+
     $ris = "";
-    while($elem = $res->fetch_assoc()){
+    while($stmt->fetch()){
         $ris = $ris . 
-        "<h1>" . $elem['Question'] . "</h1> 
-        <p>" . $elem['Answer'] . "</p>
-        <p>Tag: " . $elem['Tag'] . "</p>";
+        "<h1>" . $que . "</h1> 
+        <p>" . $ans . "</p>
+        <p>Tag: " . $tag. "</p>";
     }
     return $ris;
+
+    $stmt->close();
     $conn->close();
 }
-Function SearchByTitle($title){
+function SearchByTitle($title){
     $conn=DataConnect();
-    $sql="SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.Question LIKE '$title" . "%'";
-    $res=$conn->query($sql);
+
+    $stmt = $conn->prepare("SELECT question.Question, question.Answer, question.Tag FROM question WHERE question.Question LIKE ?");
+    $param=$title . "%";
+    $stmt->bind_param('s', $param);
+    $stmt->execute();
+    $stmt->bind_result($que,$ans,$tag);
+
     $ris = "";
-    while($elem = $res->fetch_assoc()){
+    while($stmt->fetch()){
         $ris = $ris . 
-        "<h1>" . $elem['Question'] . "</h1> 
-        <p>" . $elem['Answer'] . "</p>
-        <p>Tag: " . $elem['Tag'] . "</p>";
+        "<h1>" . $que . "</h1> 
+        <p>" . $ans . "</p>
+        <p>Tag: " . $tag. "</p>";
     }
     return $ris;
+
+    $stmt->close();
     $conn->close();
 }
 function InsertQuestion($Que,$Ans,$Tag,$idCat){
     $conn=DataConnect();
 
-    $stmt = $conn->prepare("INSERT INTO `question`(`Question`, `Answer`, `Tag`, `fk_category`) VALUES (?,?,?,?)");
-    $stmt->bind_param('s', $Que,$Ans,$Tag,$idCat);
-    //$stmt->bind_param('i', $idCat);
+    $stmt = $conn->prepare("INSERT INTO question (Question, Answer, Tag, fk_category) VALUES (?,?,?,?)");
+    $stmt->bind_param('sssi', $Que,$Ans,$Tag,$idCat);
     $stmt->execute();
 
     $stmt->close();
@@ -144,14 +179,22 @@ function InsertCategory($cat){
 function InsertAdmin($User,$Pass){
     $conn=DataConnect();
     $psw=password_hash($Pass,PASSWORD_DEFAULT);
-    $sql = "INSERT INTO `account`(`UserName`, `PassWord`) VALUES ('$User','$psw')";
-    $conn->query($sql);
+
+    $stmt = $conn->prepare("INSERT INTO account (UserName, PassWord) VALUES (?,?)");
+    $stmt->bind_param('ss', $User,$psw);
+
+    $stmt->close();
     $conn->close();
 }
+
 function EditQuestion($id,$Que,$Ans,$Tag){
     $conn=DataConnect();
-    $sql="UPDATE `question` SET `Question`='$Que',`Answer`='$Ans',`Tag`='$Tag' WHERE id=$id";
-    $conn->query($sql);
+
+    $stmt = $conn->prepare("UPDATE question SET Question=?,Answer=?,Tag=? WHERE id=?");
+    $stmt->bind_param('sssi', $Que,$Ans,$Tag,$id);
+    $stmt->execute();
+
+    $stmt->close();
     $conn->close();
 }
 ?>
