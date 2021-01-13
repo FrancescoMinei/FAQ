@@ -159,11 +159,9 @@ function SearchByTitle($title){
 }
 function InsertQuestion($Que,$Ans,$Tag,$idCat){
     $conn=DataConnect();
-
     $stmt = $conn->prepare("INSERT INTO question (Question, Answer, Tag, fk_category) VALUES (?,?,?,?)");
     $stmt->bind_param('sssi', $Que,$Ans,$Tag,$idCat);
     $stmt->execute();
-
     $stmt->close();
     $conn->close();
 }
@@ -179,21 +177,16 @@ function InsertCategory($cat){
 function InsertAdmin($User,$Pass){
     $conn=DataConnect();
     $psw=password_hash($Pass,PASSWORD_DEFAULT);
-
     $stmt = $conn->prepare("INSERT INTO account (UserName, PassWord) VALUES (?,?)");
     $stmt->bind_param('ss', $User,$psw);
-
     $stmt->close();
     $conn->close();
 }
-
 function EditQuestion($id,$Que,$Ans,$Tag){
     $conn=DataConnect();
-
     $stmt = $conn->prepare("UPDATE question SET Question=?,Answer=?,Tag=? WHERE id=?");
     $stmt->bind_param('sssi', $Que,$Ans,$Tag,$id);
     $stmt->execute();
-
     $stmt->close();
     $conn->close();
 }

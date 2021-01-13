@@ -7,7 +7,6 @@
     $res=FindUser($user);
     if(password_verify($psw,$res[1]))
     {
-        echo $res;
         session_start();
         $_SESSION['Username']=$user;
         $_SESSION['Password']=$psw;
