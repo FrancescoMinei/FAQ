@@ -15,7 +15,8 @@
             <div class="Square">
                 <h1 id="Text">Aggiungi Domanda e risposta</h1>
                 <input name="Question" id="Input-item" type="text" class="form-control" placeholder="Domanda" aria-label="Categoria" aria-describedby="basic-addon2" required="" autofocus="">
-                <input name="Answer" id="Input-item" type="text" class="form-control" placeholder="Risposta" aria-label="Categoria" aria-describedby="basic-addon2" required="" autofocus="">
+                <!--<input name="Answer" id="Input-item" type="text" class="form-control" placeholder="Risposta" aria-label="Categoria" aria-describedby="basic-addon2" required="" autofocus="">-->
+                <textarea class=form-control id="Input-item" rows="5" name="Answer"placeholder="Risposta"></textarea>
                 <input name="Tag" id="Input-item" type="text" class="form-control" placeholder="Tag" aria-label="Categoria" aria-describedby="basic-addon2" required="" autofocus="" lenght="20">
                 <label for="Manufacturer"> Categoria : </label>
                 <select name="Category" id="cmbMake" name="Make">

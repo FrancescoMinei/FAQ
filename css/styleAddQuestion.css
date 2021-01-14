@@ -5,7 +5,7 @@ body {
 
 .Wrapper .Square {
     width: 400px;
-    height: 450px;
+    height: 550px;
     border: 1px solid black;
     position: absolute;
     left: 50%;
@@ -28,6 +28,14 @@ body {
 .Wrapper .Square input#btn_submit {
     display: block;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 25px;
     width: 90px;
+}
+
+.Wrapper .Square textarea {
+    resize: none;
+}
+
+.Wrapper .Square label {
+    margin-top: 25px;
 }

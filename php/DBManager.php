@@ -1,9 +1,10 @@
 <?php
     //CREDENZIALI DATABASE, MODIFICARE QUANDO INSTALLATE SU UNA NUOVA MACCHINA
-    $servername = "localhost";
+    $servername = "127.0.0.1";
     $username="FaqAdmin";
     $password="password123";
     $dbname="faq";
+
 function DataConnect(){
     global $servername,$username, $password,$dbname;
     $conn=new mysqli($servername,$username,$password,$dbname);
@@ -140,7 +141,7 @@ function SearchByTitle($title){
     $conn=DataConnect();
 
     $stmt = $conn->prepare("SELECT question.Question, question.Answer, question.Tag FROM question WHERE question.Question LIKE ?");
-    $param=$title . "%";
+    $param= "%" . $title . "%";
     $stmt->bind_param('s', $param);
     $stmt->execute();
     $stmt->bind_result($que,$ans,$tag);
