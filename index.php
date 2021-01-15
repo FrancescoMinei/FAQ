@@ -20,7 +20,7 @@
             <a href="Home"><img src="IMG/Faq_Logo.png" alt="Logo.png"></a>
             <h1 id="Title">Categorie</h1>
             <input name="search" id="Search" type="text" placeholder="Titolo...">
-            <button name="ok" type="submit" onclick=EditUrlTitle()><i class="fas fa-search"></i></button>
+            <button name="ok" id="btn-search" type="submit" onclick=EditUrlTitle()><i class="fas fa-search"></i></button>
             <select id="STag" name="Tag" id="cmbMake">
                 <?php
                 echo LoadTagWithIndex();

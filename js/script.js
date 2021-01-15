@@ -13,3 +13,14 @@ function EditUrlTitle() {
     url[0] += "?Title=" + Title;
     window.location.href = url[0];
 }
+
+function PressEnter() {
+    let input = document.getElementById("Search");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("btn-search").click();
+        }
+    });
+}
+PressEnter();

@@ -48,7 +48,7 @@ function LoadTagWithIndex(){
 function LoadQuestions($id){
     $conn=DataConnect();
 
-    $stmt = $conn->prepare("SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.fk_category= ?");
+    $stmt = $conn->prepare("SELECT question.Question, question.Answer,question.Tag FROM question WHERE question.fk_category= ? ORDER BY question.Question");
     $stmt->bind_param('i', $id);
     $stmt->execute();
     $stmt->bind_result($que,$ans,$tag);
@@ -120,7 +120,7 @@ function FindUser($user){
 function SearchByTag($tag){
     $conn=DataConnect();
 
-    $stmt = $conn->prepare("SELECT question.Question, question.Answer, question.Tag FROM question WHERE question.Tag = ?");
+    $stmt = $conn->prepare("SELECT question.Question, question.Answer, question.Tag FROM question WHERE question.Tag = ?  ORDER BY question.Question");
     $stmt->bind_param('s', $tag);
     $stmt->execute();
     $stmt->bind_result($que,$ans,$tag);
@@ -140,7 +140,7 @@ function SearchByTag($tag){
 function SearchByTitle($title){
     $conn=DataConnect();
 
-    $stmt = $conn->prepare("SELECT question.Question, question.Answer, question.Tag FROM question WHERE question.Question LIKE ?");
+    $stmt = $conn->prepare("SELECT question.Question, question.Answer, question.Tag FROM question WHERE question.Question LIKE ?  ORDER BY question.Question");
     $param= "%" . $title . "%";
     $stmt->bind_param('s', $param);
     $stmt->execute();

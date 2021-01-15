@@ -15,6 +15,7 @@ FAQ è un sistema di gestione di domande e risposte suddivise per categorie e ca
 * Aggiornamento della sicurezza
 * Incremento della velocità su macchina locale
 * Miglioramento della ricerca (ricerca anche di una parte centrale del titolo)
+* Premere Invio per effettuare la ricerca per titolo
 ## TODO list
 1. Db -> FATTO
 2. Struttura sito -> FATTO
